@@ -1,0 +1,56 @@
+{
+  "name": "n8n-nodes-flowproof",
+  "version": "0.1.0",
+  "description": "Validate that an n8n workflow imports cleanly — leaked credentials, missing/community nodes, version drift, broken connections. Offline, no API, no network.",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "workflow",
+    "validation",
+    "flowproof",
+    "lint"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AkuchiS/flowproof",
+  "author": {
+    "name": "AkuchiS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AkuchiS/n8n-nodes-flowproof.git"
+  },
+  "engines": {
+    "node": ">=18.10"
+  },
+  "main": "dist/nodes/FlowProof/FlowProof.node.js",
+  "scripts": {
+    "build": "tsc && cp nodes/FlowProof/*.svg dist/nodes/FlowProof/",
+    "dev": "tsc --watch",
+    "format": "prettier nodes --write",
+    "lint": "eslint nodes package.json",
+    "lintfix": "eslint nodes package.json --fix",
+    "test": "npm run build && node test/smoke.test.cjs",
+    "prepublishOnly": "npm run build && npm run lint"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/FlowProof/FlowProof.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@typescript-eslint/parser": "~6.20",
+    "eslint": "~8.57",
+    "eslint-plugin-n8n-nodes-base": "^1.16.0",
+    "n8n-workflow": "*",
+    "prettier": "^3.2",
+    "typescript": "~5.4"
+  }
+}

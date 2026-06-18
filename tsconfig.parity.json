@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es2020",
+    "lib": ["es2020"],
+    "types": ["node"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "outDir": "./dist-parity",
+    "rootDir": "."
+  },
+  "include": [
+    "nodes/FlowProof/diagnostics.ts",
+    "nodes/FlowProof/knownNodes.ts",
+    "test/parity.test.ts"
+  ]
+}
