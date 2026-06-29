@@ -1,0 +1,20 @@
+# NOTE: the 3 Python repos are guaranteed green (selftests verified locally).
+# This Node one builds + runs the smoke test; confirm the first run is green
+# (it needs package-lock.json present — it is).
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - run: npm ci
+      - run: npm test   # = npm run build && node test/smoke.test.cjs
